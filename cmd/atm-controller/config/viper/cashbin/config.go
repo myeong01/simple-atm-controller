@@ -1,10 +1,10 @@
-package cardreader
+package cashbin
 
 import (
 	"errors"
-	"github.com/myeong01/simple-atm-controller/cmd/atm-controller/config/viper/cardreader/cli"
-	"github.com/myeong01/simple-atm-controller/cmd/atm-controller/config/viper/cardreader/mock"
-	"github.com/myeong01/simple-atm-controller/pkg/cardreader"
+	"github.com/myeong01/simple-atm-controller/cmd/atm-controller/config/viper/cashbin/cli"
+	"github.com/myeong01/simple-atm-controller/cmd/atm-controller/config/viper/cashbin/mock"
+	"github.com/myeong01/simple-atm-controller/pkg/cashbin"
 	"github.com/spf13/viper"
 )
 
@@ -25,12 +25,12 @@ func SetConfigDefault(basePath string, config *viper.Viper) {
 	cli.SetConfigDefault(basePath+".cli", config)
 }
 
-func (c *Config) GetController() (cardreader.Interface, error) {
+func (c *Config) GetController() (cashbin.Interface, error) {
 	switch c.Type {
 	case TypeMock:
 		return c.Mock.GetController()
 	case TypeCli:
 		return c.Cli.GetController()
 	}
-	return nil, errors.New("unknown cardReader type")
+	return nil, errors.New("unknown cashBin type")
 }

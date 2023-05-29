@@ -12,17 +12,15 @@ const (
 )
 
 type Config struct {
-	Type string      `yaml:"type"`
 	Mock mock.Config `yaml:"mock"`
 }
 
 func SetConfigDefault(basePath string, config *viper.Viper) {
-	config.SetDefault(basePath+".type", TypeMock)
 	mock.SetConfigDefault(basePath+".mock", config)
 }
 
-func (c *Config) GetController() (bankapi.Interface, error) {
-	switch c.Type {
+func (c *Config) GetController(bankType string) (bankapi.Interface, error) {
+	switch bankType {
 	case TypeMock:
 		return c.Mock.GetController()
 	}

@@ -22,3 +22,5 @@ go.work
 
 # Goland file
 .idea
+
+bin

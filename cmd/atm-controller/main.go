@@ -21,6 +21,18 @@ func main() {
 	if err != nil {
 		log.Panicln("failed to get controller:", err)
 	}
+	cardReader, err := config.CardReader.GetController()
+	if err != nil {
+		log.Panicln("failed to get card reader:", err)
+	}
+	cashBin, err := config.CashBin.GetController()
+	if err != nil {
+		log.Panicln("failed to get cashBin:", err)
+	}
+	controller = controller.
+		SetBankConfig(config.Bank).
+		SetCardReader(cardReader).
+		SetCashBin(cashBin)
 	if err = controller.Run(); err != nil {
 		log.Panicln("failed to run controller:", err)
 	}

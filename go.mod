@@ -2,7 +2,10 @@ module github.com/myeong01/simple-atm-controller
 
 go 1.20
 
-require github.com/spf13/viper v1.15.0
+require (
+	github.com/google/go-cmp v0.5.9
+	github.com/spf13/viper v1.15.0
+)
 
 require (
 	github.com/fsnotify/fsnotify v1.6.0 // indirect

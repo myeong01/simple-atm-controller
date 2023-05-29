@@ -1,0 +1,6 @@
+cashBin:
+  type: mock
+cardReader:
+  type: cli
+controller:
+  type: cli

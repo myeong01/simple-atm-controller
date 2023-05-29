@@ -5,6 +5,18 @@ Implement a simple ATM controller
 - We're thinking about adding hardware control in the future
 - We are considering integrating with a real bank in the future
 
+## Requirements
+- go (>= 1.20.4)
+- make (>=3.81)
+
+## Clone
+
+```shell
+$ git clone https://github.com/myeong01/simple-atm-controller.git
+```
+
+- Clone this project by executing the above command in a directory where you can run go.
+
 
 ## Test
 
